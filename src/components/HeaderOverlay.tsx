@@ -25,7 +25,7 @@ interface Props {
     setOptionActive: (value: string) => void;
     adults: number;
     setAdults: (value: number) => void;
-    children: number;
+    childrenNumber: number;
     setChildren: (value: number) => void;
 }
 
@@ -39,7 +39,7 @@ export default function HeaderOverlay({
     setOptionActive,
     adults,
     setAdults,
-    children,
+    childrenNumber,
     setChildren,
 }: Props) {
     const data: Data[] = require("../data/stays.json");
@@ -53,12 +53,12 @@ export default function HeaderOverlay({
     }
 
     function handleChildren(signal: string) {
-        signal === "minus" && children != 0 ? setChildren(children - 1) : null;
-        signal === "plus" ? setChildren(children + 1) : null;
+        signal === "minus" && childrenNumber != 0 ? setChildren(childrenNumber - 1) : null;
+        signal === "plus" ? setChildren(childrenNumber + 1) : null;
     }
 
     function handleGuests() {
-        setGuests(adults + children);
+        setGuests(adults + childrenNumber);
     }
 
     function handleLocation(city: string) {
@@ -67,7 +67,7 @@ export default function HeaderOverlay({
 
     useEffect(() => {
         handleGuests();
-    }, [adults, children]);
+    }, [adults, childrenNumber]);
 
     return (
         <>
@@ -224,7 +224,7 @@ export default function HeaderOverlay({
                                             <span
                                                 className={styles.valuesNumber}
                                             >
-                                                {children}
+                                                {childrenNumber}
                                             </span>
 
                                             <button

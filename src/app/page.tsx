@@ -28,7 +28,7 @@ export default function Home() {
                     setOptionActive={setOptionActive}
                     adults={adults}
                     setAdults={setAdults}
-                    children={children}
+                    childrenNumber={children}
                     setChildren={setChildren}
                 />
             ) : null}
